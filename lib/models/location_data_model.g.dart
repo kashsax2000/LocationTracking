@@ -21,14 +21,13 @@ class LocationDataModelAdapter extends TypeAdapter<LocationDataModel> {
       latitude: fields[1] as double,
       timestamp: fields[2] as DateTime,
       accuracy: fields[3] as double,
-      isTracking: fields[4] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, LocationDataModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.longitute)
       ..writeByte(1)
@@ -36,9 +35,7 @@ class LocationDataModelAdapter extends TypeAdapter<LocationDataModel> {
       ..writeByte(2)
       ..write(obj.timestamp)
       ..writeByte(3)
-      ..write(obj.accuracy)
-      ..writeByte(4)
-      ..write(obj.isTracking);
+      ..write(obj.accuracy);
   }
 
   @override

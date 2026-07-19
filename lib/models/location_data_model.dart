@@ -3,7 +3,7 @@ part 'location_data_model.g.dart';
 
 @HiveType(typeId: 1)
 class LocationDataModel {
-  LocationDataModel({required this.longitute, required this.latitude, required this.timestamp, required this.accuracy, required this.isTracking});
+  LocationDataModel({required this.longitute, required this.latitude, required this.timestamp, required this.accuracy});
 
   @HiveField(0)
   double longitute;
@@ -16,9 +16,6 @@ class LocationDataModel {
 
   @HiveField(3)
   double accuracy;
-
-  @HiveField(4)
-  bool isTracking;
 
   @override
   String toString() {

@@ -14,7 +14,7 @@ class TrackingStorageService {
   }
 
   Future<Box<dynamic>> appBox() async {
-    return _hiveService.openBox<dynamic>(HiveConstant.trackApp);
+    return _hiveService.openBox<bool>(HiveConstant.trackApp);
   }
 
   Future<bool> getTrackingState() async {

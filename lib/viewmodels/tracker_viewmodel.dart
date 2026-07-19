@@ -107,7 +107,6 @@ class TrackerViewmodel extends BaseProvider {
         latitude: pos.latitude,
         timestamp: pos.timestamp,
         accuracy: pos.accuracy,
-        isTracking: isTracking,
       ),
     );
 

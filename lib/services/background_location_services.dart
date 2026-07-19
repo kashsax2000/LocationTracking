@@ -12,11 +12,11 @@ class BackgroundLocationService {
   );
 
   static Future<void> init() async {
-    final appBox = await HiveService.instance.openBox('app');
+    final appBox = await HiveService.instance.openBox<bool>(HiveConstant.trackApp);
 
     BackgroundGeolocation.onLocation((Location location) async {
       final coords = location.coords;
-      final isTracking = appBox.get('isTracking', defaultValue: false);
+      final isTracking = appBox.get(HiveConstant.isTracking, defaultValue: false);
 
       log("LAT: ${coords.latitude}, LNG: ${coords.longitude}");
 
@@ -27,7 +27,6 @@ class BackgroundLocationService {
           latitude: coords.latitude,
           timestamp: DateTime.timestamp(),
           accuracy: coords.accuracy,
-          isTracking: isTracking,
         ),
       );
     });
